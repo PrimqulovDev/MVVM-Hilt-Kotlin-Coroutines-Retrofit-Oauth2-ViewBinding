@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav_graph"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="ilyos.app.mvvm_hilt_example.ui.screens.authorization.screens.SplashScreen"
+        android:label="SplashScreen"
+        tools:layout="@layout/screen_splash">
+        <action
+            android:id="@+id/action_splashScreen_to_signInScreen"
+            app:destination="@id/signInScreen" />
+        <action
+            android:id="@+id/action_splashScreen_to_signUpScreen"
+            app:destination="@id/signUpScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signInScreen"
+        android:name="ilyos.app.mvvm_hilt_example.ui.screens.authorization.screens.SignInScreen"
+        android:label="SignInScreen"
+        tools:layout="@layout/screen_sign_in">
+        <action
+            android:id="@+id/action_signInScreen_to_resetPasswordScreen"
+            app:destination="@id/resetPasswordScreen" />
+        <action
+            android:id="@+id/action_signInScreen_to_guestScreen"
+            app:destination="@id/guestScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpScreen"
+        android:name="ilyos.app.mvvm_hilt_example.ui.screens.authorization.screens.SignUpScreen"
+        android:label="SignUpScreen"
+        tools:layout="@layout/screen_sign_up" />
+
+    <fragment
+        android:id="@+id/guestScreen"
+        android:name="ilyos.app.mvvm_hilt_example.ui.screens.guest.GuestScreen"
+        android:label="GuestScreen"
+        tools:layout="@layout/screen_guest">
+        <action
+            android:id="@+id/action_guestScreen_to_splashScreen2"
+            app:popUpTo="@id/auth_nav_graph"
+            app:popUpToInclusive="true"
+            app:destination="@id/splashScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetPasswordScreen"
+        android:name="ilyos.app.mvvm_hilt_example.ui.screens.authorization.screens.ResetPasswordScreen"
+        android:label="ResetPasswordScreen"
+        tools:layout="@layout/screen_reset_password" />
+</navigation>
